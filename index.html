@@ -4,134 +4,137 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a0810">
-<title>VARTEXCPM</title>
+<title>VARTEXCPM | CPM Pazaryeri</title>
 
 <style>
 :root {
+  color-scheme: dark;
   --bg:#0a0810;
   --panel:#14101c;
-  --panel2:#1b1426;
-  --purple:#a855f7;
   --text:#f8f5ff;
   --muted:#a69bb5;
+  --accent:#a855f7;
   --line:#30213f;
+  --card:#110d19;
+}
+body.light {
+  color-scheme:light;
+  --bg:#f5f2fa;
+  --panel:#fff;
+  --text:#24172d;
+  --muted:#6e6178;
+  --accent:#8128bd;
+  --line:#e1d5eb;
+  --card:#fff;
 }
 *{box-sizing:border-box}
 body{
   margin:0;background:var(--bg);color:var(--text);
-  font-family:Inter,Arial,sans-serif;min-height:100vh;
+  font-family:Arial,sans-serif;min-height:100vh;
+  transition:background .25s,color .25s;
 }
 button,a{font:inherit;cursor:pointer}
 button{transition:.2s}
-button:hover,a:hover{filter:brightness(1.12)}
+button:hover,a:hover{filter:brightness(1.1)}
 .hidden{display:none!important}
 
 /* Giriş ekranı */
 .login-screen{
   position:fixed;inset:0;z-index:10;
   display:flex;align-items:center;justify-content:center;
-  padding:22px;background:
-  radial-gradient(ellipse at 50% 20%,#6524a733,transparent 55%),
-  #0a0810;
+  padding:22px;
+  background:radial-gradient(ellipse at 50% 20%,#6524a733,transparent 55%),var(--bg);
 }
 .login-card{
-  width:100%;max-width:410px;text-align:center;
-  padding:38px 27px;background:#110d19;
-  border:1px solid #38234c;border-radius:22px;
-  box-shadow:0 25px 90px #0008;
+  width:100%;max-width:410px;text-align:center;padding:38px 27px;
+  background:var(--card);border:1px solid var(--line);
+  border-radius:22px;box-shadow:0 25px 90px #0005;
 }
 .logo{
-  width:76px;height:76px;margin:0 auto 22px;
-  border-radius:23px;display:grid;place-items:center;
+  width:76px;height:76px;margin:0 auto 22px;border-radius:23px;
+  display:grid;place-items:center;
   background:linear-gradient(145deg,#c084fc,#7025b6);
   color:white;font-weight:900;font-size:26px;
   box-shadow:0 8px 35px #a855f744;
 }
 .login-card h1{font-size:27px;letter-spacing:3px;margin:0}
-.login-card h1 span{color:var(--purple)}
-.tagline{color:var(--muted);font-size:14px;line-height:1.6;margin:13px 0 27px}
-.google-btn{
-  display:block;width:100%;padding:15px;border:1px solid #44344f;
-  border-radius:11px;background:#fff;color:#211a29;font-weight:700;
-}
-.google-icon{font-weight:900;font-size:18px;margin-right:10px}
+.brand span,.login-card h1 span{color:var(--accent)}
+.tagline{color:var(--muted);font-size:14px;line-height:1.7;margin:13px 0 27px}
 .guest-btn{
-  display:block;width:100%;margin-top:12px;padding:14px;
-  border:1px solid #453052;border-radius:11px;
-  background:transparent;color:white;font-weight:600;
+  display:block;width:100%;padding:15px;border:1px solid var(--line);
+  border-radius:11px;background:var(--panel);color:var(--text);font-weight:700;
 }
-.login-note{font-size:11px;color:#82768f;line-height:1.6;margin-top:22px}
+.login-note{font-size:11px;color:var(--muted);line-height:1.7;margin-top:22px}
 
-/* Website */
+/* Üst menü */
 header{
-  height:76px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 7%;border-bottom:1px solid var(--line);
-  background:#0e0b14;
+  min-height:76px;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:15px 7%;border-bottom:1px solid var(--line);
+  background:var(--panel);
 }
 .brand{font-weight:900;font-size:21px;letter-spacing:2px}
-.brand span{color:var(--purple)}
 .header-right{display:flex;gap:10px;align-items:center}
 .small-btn{
   border:1px solid var(--line);background:var(--panel);
-  color:white;padding:10px 13px;border-radius:9px;
+  color:var(--text);padding:10px 13px;border-radius:9px;
 }
-.hero{
-  max-width:1050px;margin:55px auto 35px;padding:35px 22px;
-  text-align:center;
-}
+
+/* Ana sayfa */
+.hero{max-width:1050px;margin:55px auto 35px;padding:35px 22px;text-align:center}
 .eyebrow{
   display:inline-block;padding:8px 12px;border-radius:30px;
-  background:#a855f71a;border:1px solid #a855f744;
-  color:#d6aaff;font-size:11px;letter-spacing:2px;font-weight:700;
+  background:color-mix(in srgb,var(--accent) 10%,transparent);
+  border:1px solid var(--line);color:var(--accent);
+  font-size:11px;letter-spacing:2px;font-weight:700;
 }
 .hero h2{font-size:clamp(32px,6vw,55px);margin:20px 0 12px;letter-spacing:-1.5px}
-.hero h2 span{color:var(--purple)}
+.hero h2 span{color:var(--accent)}
 .hero p{max-width:530px;margin:auto;color:var(--muted);line-height:1.8;font-size:15px}
 .tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}
 .tab{
   padding:12px 18px;border-radius:10px;background:var(--panel);
-  border:1px solid var(--line);color:#d4c8e1;font-weight:600;
+  border:1px solid var(--line);color:var(--text);font-weight:600;
 }
-.tab.active{background:var(--purple);border-color:var(--purple);color:white}
+.tab.active{background:var(--accent);border-color:var(--accent);color:white}
 main{max-width:1000px;margin:auto;padding:10px 22px 70px}
-.section-heading{display:flex;align-items:center;justify-content:space-between;margin:20px 0}
+.section-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:20px 0}
 .section-heading h3{font-size:20px;margin:0}
 .count{font-size:12px;color:var(--muted)}
 .listing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
 .listing{
-  background:linear-gradient(145deg,#191321,#100d16);
-  border:1px solid var(--line);border-radius:16px;padding:22px;
-  transition:transform .2s,border-color .2s;
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:22px;transition:transform .2s,border-color .2s;
 }
-.listing:hover{transform:translateY(-3px);border-color:#8e46c5}
+.listing:hover{transform:translateY(-3px);border-color:var(--accent)}
 .listing-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
-.pill{font-size:10px;letter-spacing:1px;color:#d9b5ff;background:#a855f71b;padding:7px 9px;border-radius:6px}
-.status{font-size:11px;color:#b9f3d1}
+.pill{font-size:10px;letter-spacing:1px;color:var(--accent);background:var(--panel);padding:7px 9px;border-radius:6px}
+.status{font-size:11px;color:#37bd80}
 .listing h4{font-size:18px;line-height:1.5;margin:22px 0 8px}
 .listing .sub{font-size:13px;color:var(--muted)}
-.price-row{display:flex;align-items:center;justify-content:space-between;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
-.price{font-size:25px;font-weight:800}
+.price-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.price{font-size:25px;font-weight:800;color:var(--accent)}
 .currency{font-size:13px;color:var(--muted);font-weight:500}
 .contact-btn{
-  display:inline-block;text-decoration:none;text-align:center;
-  padding:12px 15px;border-radius:9px;
-  background:var(--purple);color:white;font-weight:700;font-size:13px;
+  display:inline-block;text-decoration:none;text-align:center;padding:12px 15px;
+  border-radius:9px;background:var(--accent);color:white;font-weight:700;font-size:13px;
 }
 .soon{
   grid-column:1/-1;text-align:center;padding:50px 20px;
   background:var(--panel);border:1px solid var(--line);border-radius:16px;
 }
-.soon h4{font-size:25px;color:#d5a2ff;margin:0 0 12px}
+.soon h4{font-size:25px;color:var(--accent);margin:0 0 12px}
 .soon p{color:var(--muted);font-size:14px}
-footer{border-top:1px solid var(--line);text-align:center;padding:25px;color:#80748c;font-size:12px}
-footer strong{color:#c58cff}
+footer{border-top:1px solid var(--line);text-align:center;padding:25px;color:var(--muted);font-size:12px}
+footer strong{color:var(--accent)}
 @media(max-width:600px){
-  header{padding:0 17px;height:68px}
+  header{padding:15px 17px}
   .brand{font-size:17px}
   .hero{margin:30px auto 20px;padding:25px 18px}
   .hero h2{letter-spacing:-.8px}
   main{padding:8px 16px 45px}
   .login-card{padding:32px 22px}
+  .price-row{align-items:flex-start;flex-direction:column}
+  .contact-btn{width:100%}
 }
 </style>
 </head>
@@ -147,28 +150,18 @@ footer strong{color:#c58cff}
       Car Parking Multiplayer dünyasına hoş geldin.<br>
       Hesapları keşfet, fırsatları kaçırma.
     </p>
-
-    <button class="google-btn" id="googleLogin">
-      <span class="google-icon">G</span> Google ile devam et
-    </button>
-
-    <button class="guest-btn" id="guestLogin">
-      Siteyi keşfet →
-    </button>
-
+    <button class="guest-btn" id="guestLogin">Siteyi keşfet →</button>
     <p class="login-note">
-      Devam ederek kullanım koşullarını kabul etmiş olursun.
-      Hesap alışverişlerinde dikkatli ol ve satıcı bilgilerini doğrula.
+      CPM topluluk pazaryerine hoş geldin.<br>
+      Alışveriş öncesinde satıcı bilgilerini kontrol et.
     </p>
-    <p id="loginMessage" style="font-size:13px;color:#d6aaff;line-height:1.5"></p>
   </div>
 </section>
 
 <header>
   <div class="brand">VARTEX<span>CPM</span></div>
   <div class="header-right">
-    <button class="small-btn" id="themeBtn">◐ Tema</button>
-    <button class="small-btn hidden" id="logoutBtn">Çıkış</button>
+    <button class="small-btn" id="themeBtn">☀️ Gündüz Modu</button>
   </div>
 </header>
 
@@ -180,7 +173,7 @@ footer strong{color:#c58cff}
     modern pazaryeri. İlanları keşfet, satıcılarla iletişime geç.
   </p>
   <div class="tabs">
-    <button class="tab active" data-section="accounts">Hesaplar</button>
+    <button class="tab active" data-section="accounts">Satılık Hesaplar</button>
     <button class="tab" data-section="cars">Satılan Arabalar</button>
   </div>
 </section>
@@ -225,89 +218,51 @@ footer strong{color:#c58cff}
   Bağımsız CPM topluluk pazaryeri · © 2026
 </footer>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-import {
-  getAuth, GoogleAuthProvider, signInWithPopup,
-  signOut, onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyB-xOpODdTXnVFRDCOZ4TYOVFeu00y1X_I",
-  authDomain: "varexcpm-5f7c1.firebaseapp.com",
-  projectId: "varexcpm-5f7c1",
-  storageBucket: "varexcpm-5f7c1.firebasestorage.app",
-  messagingSenderId: "904319623717",
-  appId: "1:904319623717:web:22ad4ed07969658d01d5cc",
-  measurementId: "G-7DCC0V0ST8"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
-
+<script>
 const $ = id => document.getElementById(id);
-const loginScreen = $("loginScreen");
 
+/* Giriş ekranı: siteyi misafir olarak aç */
 $("guestLogin").addEventListener("click", () => {
-  loginScreen.classList.add("hidden");
+  $("loginScreen").classList.add("hidden");
 });
 
-$("googleLogin").addEventListener("click", async () => {
-  $("loginMessage").textContent = "Google giriş ekranı açılıyor...";
+/* Gece / gündüz modu */
+const themeBtn = $("themeBtn");
+
+function applyTheme(theme) {
+  document.body.classList.toggle("light", theme === "light");
+  themeBtn.textContent = theme === "light"
+    ? "🌙 Gece Modu"
+    : "☀️ Gündüz Modu";
   try {
-    await signInWithPopup(auth, provider);
-    loginScreen.classList.add("hidden");
-    $("loginMessage").textContent = "";
-  } catch (error) {
-    const errors = {
-      "auth/popup-closed-by-user": "Giriş penceresi kapatıldı.",
-      "auth/popup-blocked": "Tarayıcı açılır pencereyi engelledi.",
-      "auth/unauthorized-domain": "Bu alan adını Firebase yetkili alanlarına ekle.",
-      "auth/operation-not-allowed": "Firebase'de Google girişini etkinleştir."
-    };
-    $("loginMessage").textContent =
-      errors[error.code] || "Giriş başarısız: " + error.message;
-  }
+    localStorage.setItem("vartex-theme", theme);
+  } catch (e) {}
+}
+
+let savedTheme = "dark";
+try {
+  savedTheme = localStorage.getItem("vartex-theme") || "dark";
+} catch (e) {}
+applyTheme(savedTheme);
+
+themeBtn.addEventListener("click", () => {
+  const isLight = document.body.classList.contains("light");
+  applyTheme(isLight ? "dark" : "light");
 });
 
-onAuthStateChanged(auth, user => {
-  if (user) {
-    loginScreen.classList.add("hidden");
-    $("logoutBtn").classList.remove("hidden");
-  } else {
-    $("logoutBtn").classList.add("hidden");
-  }
-});
-
-$("logoutBtn").addEventListener("click", async () => {
-  try {
-    await signOut(auth);
-    loginScreen.classList.remove("hidden");
-  } catch (error) {
-    alert("Çıkış yapılamadı: " + error.message);
-  }
-});
-
+/* Sekmeler */
 document.querySelectorAll("[data-section]").forEach(button => {
   button.addEventListener("click", () => {
     const selected = button.dataset.section;
     $("accounts").classList.toggle("hidden", selected !== "accounts");
     $("cars").classList.toggle("hidden", selected !== "cars");
-    document.querySelectorAll("[data-section]").forEach(tab =>
-      tab.classList.toggle("active", tab === button)
-    );
-    window.scrollTo({top: 0, behavior: "smooth"});
-  });
-});
 
-if (localStorage.getItem("vartex-theme") === "light") {
-  document.body.classList.add("light");
-}
-$("themeBtn").addEventListener("click", () => {
-  // Basit açık tema geçişi
-  const light = document.body.classList.toggle("light");
-  localStorage.setItem("vartex-theme", light ? "light" : "dark");
+    document.querySelectorAll("[data-section]").forEach(tab => {
+      tab.classList.toggle("active", tab === button);
+    });
+
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
 });
 </script>
 </body>
