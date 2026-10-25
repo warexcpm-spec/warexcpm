@@ -3,123 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VARTEXCPM | CPM Pazaryeri</title>
+<meta name="theme-color" content="#0a0810">
+<title>VARTEXCPM</title>
+
 <style>
-:root{--bg:#0b0b10;--panel:#17131e;--text:#fff;--muted:#c4b9ce;--accent:#b44cff;--border:#68299a}
-body.light{--bg:#f6f1fa;--panel:#fff;--text:#24172d;--muted:#65566d;--accent:#8327bd;--border:#d6b1ec}
+:root {
+  --bg:#0a0810;
+  --panel:#14101c;
+  --panel2:#1b1426;
+  --purple:#a855f7;
+  --text:#f8f5ff;
+  --muted:#a69bb5;
+  --line:#30213f;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif;transition:.2s}
-header{text-align:center;padding:25px 12px;background:var(--panel);border-bottom:2px solid var(--accent)}
-h1{color:var(--accent);letter-spacing:3px;margin:0}
-header p{color:var(--muted)}
-button,input{font:inherit}
-button{padding:12px;border-radius:9px;cursor:pointer}
-.primary{background:var(--accent);color:white;border:0}
-.secondary{background:var(--panel);color:var(--text);border:1px solid var(--border)}
-.authbar,nav{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;padding:15px}
-nav button{font-weight:bold}
-main{max-width:800px;margin:auto;padding:15px}
-h2{text-align:center;color:var(--accent);margin:28px 0 18px}
-.card{max-width:550px;margin:18px auto;padding:22px;background:var(--panel);border:1px solid var(--border);border-radius:14px}
-.tag{display:inline-block;background:var(--accent);color:white;border-radius:6px;padding:7px 10px;font-size:12px}
-.card h3{margin-bottom:10px}
-.subtitle{color:var(--accent);font-weight:bold}
-.price{color:var(--accent);font-size:28px;font-weight:bold;margin:16px 0}
-.desc{white-space:pre-line;line-height:1.8;color:var(--muted)}
-.contact{display:block;text-align:center;background:var(--accent);color:white;padding:14px;border-radius:8px;text-decoration:none;margin-top:20px}
-.soon{text-align:center;padding:45px 10px}
-.soon strong{display:block;font-size:30px;color:var(--accent);margin:15px}
-footer{text-align:center;padding:25px;color:var(--muted);border-top:1px solid var(--border);margin-top:30px}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,Arial,sans-serif;min-height:100vh;
+}
+button,a{font:inherit;cursor:pointer}
+button{transition:.2s}
+button:hover,a:hover{filter:brightness(1.12)}
 .hidden{display:none!important}
-.modal{position:fixed;inset:0;background:#000b;display:flex;align-items:center;justify-content:center;padding:16px;z-index:5;overflow:auto}
-.dialog{background:var(--panel);color:var(--text);padding:24px;border:1px solid var(--border);border-radius:14px;width:100%;max-width:400px}
-.dialog h2{margin-top:10px}
-.dialog input{display:block;width:100%;padding:12px;margin:9px 0;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px}
-.dialog button{width:100%;margin-top:9px}
-.dialog .close{width:auto;float:right;margin:0}
-.google{background:var(--panel);color:var(--text);border:1px solid var(--border)}
-.message{font-size:14px;line-height:1.6;color:var(--accent);overflow-wrap:anywhere}
-.links{text-align:center;font-size:14px;margin-top:14px}
-.links button{width:auto;background:none;border:0;color:var(--accent);text-decoration:underline;padding:5px}
-@media(max-width:480px){h1{font-size:27px}nav button{flex:1;font-size:12px;padding:11px 6px}.card{padding:17px}}
+
+/* Giriş ekranı */
+.login-screen{
+  position:fixed;inset:0;z-index:10;
+  display:flex;align-items:center;justify-content:center;
+  padding:22px;background:
+  radial-gradient(ellipse at 50% 20%,#6524a733,transparent 55%),
+  #0a0810;
+}
+.login-card{
+  width:100%;max-width:410px;text-align:center;
+  padding:38px 27px;background:#110d19;
+  border:1px solid #38234c;border-radius:22px;
+  box-shadow:0 25px 90px #0008;
+}
+.logo{
+  width:76px;height:76px;margin:0 auto 22px;
+  border-radius:23px;display:grid;place-items:center;
+  background:linear-gradient(145deg,#c084fc,#7025b6);
+  color:white;font-weight:900;font-size:26px;
+  box-shadow:0 8px 35px #a855f744;
+}
+.login-card h1{font-size:27px;letter-spacing:3px;margin:0}
+.login-card h1 span{color:var(--purple)}
+.tagline{color:var(--muted);font-size:14px;line-height:1.6;margin:13px 0 27px}
+.google-btn{
+  display:block;width:100%;padding:15px;border:1px solid #44344f;
+  border-radius:11px;background:#fff;color:#211a29;font-weight:700;
+}
+.google-icon{font-weight:900;font-size:18px;margin-right:10px}
+.guest-btn{
+  display:block;width:100%;margin-top:12px;padding:14px;
+  border:1px solid #453052;border-radius:11px;
+  background:transparent;color:white;font-weight:600;
+}
+.login-note{font-size:11px;color:#82768f;line-height:1.6;margin-top:22px}
+
+/* Website */
+header{
+  height:76px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 7%;border-bottom:1px solid var(--line);
+  background:#0e0b14;
+}
+.brand{font-weight:900;font-size:21px;letter-spacing:2px}
+.brand span{color:var(--purple)}
+.header-right{display:flex;gap:10px;align-items:center}
+.small-btn{
+  border:1px solid var(--line);background:var(--panel);
+  color:white;padding:10px 13px;border-radius:9px;
+}
+.hero{
+  max-width:1050px;margin:55px auto 35px;padding:35px 22px;
+  text-align:center;
+}
+.eyebrow{
+  display:inline-block;padding:8px 12px;border-radius:30px;
+  background:#a855f71a;border:1px solid #a855f744;
+  color:#d6aaff;font-size:11px;letter-spacing:2px;font-weight:700;
+}
+.hero h2{font-size:clamp(32px,6vw,55px);margin:20px 0 12px;letter-spacing:-1.5px}
+.hero h2 span{color:var(--purple)}
+.hero p{max-width:530px;margin:auto;color:var(--muted);line-height:1.8;font-size:15px}
+.tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}
+.tab{
+  padding:12px 18px;border-radius:10px;background:var(--panel);
+  border:1px solid var(--line);color:#d4c8e1;font-weight:600;
+}
+.tab.active{background:var(--purple);border-color:var(--purple);color:white}
+main{max-width:1000px;margin:auto;padding:10px 22px 70px}
+.section-heading{display:flex;align-items:center;justify-content:space-between;margin:20px 0}
+.section-heading h3{font-size:20px;margin:0}
+.count{font-size:12px;color:var(--muted)}
+.listing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
+.listing{
+  background:linear-gradient(145deg,#191321,#100d16);
+  border:1px solid var(--line);border-radius:16px;padding:22px;
+  transition:transform .2s,border-color .2s;
+}
+.listing:hover{transform:translateY(-3px);border-color:#8e46c5}
+.listing-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.pill{font-size:10px;letter-spacing:1px;color:#d9b5ff;background:#a855f71b;padding:7px 9px;border-radius:6px}
+.status{font-size:11px;color:#b9f3d1}
+.listing h4{font-size:18px;line-height:1.5;margin:22px 0 8px}
+.listing .sub{font-size:13px;color:var(--muted)}
+.price-row{display:flex;align-items:center;justify-content:space-between;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.price{font-size:25px;font-weight:800}
+.currency{font-size:13px;color:var(--muted);font-weight:500}
+.contact-btn{
+  display:inline-block;text-decoration:none;text-align:center;
+  padding:12px 15px;border-radius:9px;
+  background:var(--purple);color:white;font-weight:700;font-size:13px;
+}
+.soon{
+  grid-column:1/-1;text-align:center;padding:50px 20px;
+  background:var(--panel);border:1px solid var(--line);border-radius:16px;
+}
+.soon h4{font-size:25px;color:#d5a2ff;margin:0 0 12px}
+.soon p{color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);text-align:center;padding:25px;color:#80748c;font-size:12px}
+footer strong{color:#c58cff}
+@media(max-width:600px){
+  header{padding:0 17px;height:68px}
+  .brand{font-size:17px}
+  .hero{margin:30px auto 20px;padding:25px 18px}
+  .hero h2{letter-spacing:-.8px}
+  main{padding:8px 16px 45px}
+  .login-card{padding:32px 22px}
+}
 </style>
 </head>
+
 <body>
+
+<!-- GİRİŞ EKRANI -->
+<section class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="logo">VX</div>
+    <h1>VARTEX<span>CPM</span></h1>
+    <p class="tagline">
+      Car Parking Multiplayer dünyasına hoş geldin.<br>
+      Hesapları keşfet, fırsatları kaçırma.
+    </p>
+
+    <button class="google-btn" id="googleLogin">
+      <span class="google-icon">G</span> Google ile devam et
+    </button>
+
+    <button class="guest-btn" id="guestLogin">
+      Siteyi keşfet →
+    </button>
+
+    <p class="login-note">
+      Devam ederek kullanım koşullarını kabul etmiş olursun.
+      Hesap alışverişlerinde dikkatli ol ve satıcı bilgilerini doğrula.
+    </p>
+    <p id="loginMessage" style="font-size:13px;color:#d6aaff;line-height:1.5"></p>
+  </div>
+</section>
+
 <header>
-  <h1>VARTEXCPM</h1>
-  <p>Car Parking Multiplayer hesap pazaryeri</p>
-  <button class="secondary" id="themeBtn">☀️ / 🌙 Tema değiştir</button>
+  <div class="brand">VARTEX<span>CPM</span></div>
+  <div class="header-right">
+    <button class="small-btn" id="themeBtn">◐ Tema</button>
+    <button class="small-btn hidden" id="logoutBtn">Çıkış</button>
+  </div>
 </header>
 
-<div class="authbar">
-  <span id="userInfo">Hesabınla giriş yap</span>
-  <button class="primary" id="openAuth">Giriş / Kayıt</button>
-  <button class="secondary hidden" id="logoutBtn">Çıkış yap</button>
-</div>
-
-<nav>
-  <button class="secondary" data-section="accounts">SATILIK HESAPLAR</button>
-  <button class="secondary" data-section="cars">SATILAN ARABALAR</button>
-</nav>
+<section class="hero">
+  <span class="eyebrow">CPM COMMUNITY MARKETPLACE</span>
+  <h2>Oyununun yeni <span>seviyesi.</span></h2>
+  <p>
+    Car Parking Multiplayer hesapları ve araçları için
+    modern pazaryeri. İlanları keşfet, satıcılarla iletişime geç.
+  </p>
+  <div class="tabs">
+    <button class="tab active" data-section="accounts">Hesaplar</button>
+    <button class="tab" data-section="cars">Satılan Arabalar</button>
+  </div>
+</section>
 
 <main>
   <section id="accounts">
-    <h2>🔥 SATILIK HESAPLAR 🔥</h2>
-    <article class="card">
-      <span class="tag">ÖZEL İLAN</span>
-      <h3>PREMİUM SANATÇILI VE HD LOGO 🔥</h3>
-      <p class="subtitle">HD LOGO + SANATÇILI</p>
-      <p class="price">350 TL</p>
-      <p class="desc">MERHABA BEN YAKUP...
-
-SATTIĞIM BU "PREMİUM SANATÇILI VE HD LOGO 🔥" ADLI HESABIM 350 TL'YE SATILIKTIR.
-
-İLGİLENENLER TİKTOK ÜZERİNDEN BANA MESAJ ATABİLİR.
-
-İYİ GÜNLER...</p>
-      <a class="contact" href="https://www.tiktok.com/@wartexcpm" target="_blank" rel="noopener noreferrer">TikTok Üzerinden İletişim</a>
-    </article>
+    <div class="section-heading">
+      <h3>Öne Çıkan İlan</h3>
+      <span class="count">01 İLAN</span>
+    </div>
+    <div class="listing-grid">
+      <article class="listing">
+        <div class="listing-top">
+          <span class="pill">ÖZEL HESAP</span>
+          <span class="status">● İlan yayında</span>
+        </div>
+        <h4>PREMİUM SANATÇILI VE HD LOGO 🔥</h4>
+        <p class="sub">HD LOGO + SANATÇILI</p>
+        <div class="price-row">
+          <div class="price">350 <span class="currency">TL</span></div>
+          <a class="contact-btn" href="https://www.tiktok.com/@wartexcpm"
+             target="_blank" rel="noopener noreferrer">İletişime Geç ↗</a>
+        </div>
+      </article>
+    </div>
   </section>
 
   <section id="cars" class="hidden">
-    <h2>🚘 SATILAN ARABALAR 🚘</h2>
-    <div class="card soon">
-      <strong>YAKINDA!!! 🔥</strong>
-      <p>Satılan arabalar burada yayınlanacak.</p>
+    <div class="section-heading">
+      <h3>Satılan Arabalar</h3>
+      <span class="count">YAKINDA</span>
+    </div>
+    <div class="soon">
+      <h4>YAKINDA!!! 🔥</h4>
+      <p>Yeni araçlar burada olacak.</p>
     </div>
   </section>
 </main>
 
-<footer>© 2026 VARTEXCPM | CPM 1 Pazaryeri</footer>
-
-<div id="authModal" class="modal hidden">
-  <div class="dialog">
-    <button class="secondary close" id="closeAuth">✕</button>
-    <h2 id="formTitle">Giriş yap</h2>
-    <form id="authForm">
-      <input id="name" type="text" placeholder="Adın (kayıt için)" autocomplete="name" class="hidden">
-      <input id="email" type="email" placeholder="E-posta adresin" autocomplete="email" required>
-      <input id="password" type="password" placeholder="Şifren (en az 6 karakter)" autocomplete="current-password" minlength="6" required>
-      <button class="primary" type="submit" id="submitBtn">Giriş yap</button>
-    </form>
-    <button class="google" id="googleBtn">Google ile devam et</button>
-    <div class="links">
-      <button id="switchMode">Hesabın yok mu? Kayıt ol</button>
-      <button id="resetBtn">Şifremi unuttum</button>
-    </div>
-    <p id="message" class="message" role="status"></p>
-  </div>
-</div>
+<footer>
+  <strong>VARTEXCPM</strong><br><br>
+  Bağımsız CPM topluluk pazaryeri · © 2026
+</footer>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 import {
-  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-  GoogleAuthProvider, signInWithPopup, sendEmailVerification,
-  sendPasswordResetEmail, signOut, onAuthStateChanged
+  getAuth, GoogleAuthProvider, signInWithPopup,
+  signOut, onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
-/* Firebase proje bilgilerin */
 const firebaseConfig = {
   apiKey: "AIzaSyB-xOpODdTXnVFRDCOZ4TYOVFeu00y1X_I",
   authDomain: "varexcpm-5f7c1.firebaseapp.com",
@@ -135,119 +247,45 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 const $ = id => document.getElementById(id);
-let mode = "login";
-let busy = false;
+const loginScreen = $("loginScreen");
 
-function showMessage(text) { $("message").textContent = text; }
-function openModal() {
-  $("authModal").classList.remove("hidden");
-  showMessage("");
-}
-function closeModal() {
-  $("authModal").classList.add("hidden");
-  showMessage("");
-}
-function setMode(next) {
-  mode = next;
-  $("formTitle").textContent = mode === "register" ? "Hesap oluştur" : "Giriş yap";
-  $("submitBtn").textContent = mode === "register" ? "Kayıt ol" : "Giriş yap";
-  $("name").classList.toggle("hidden", mode !== "register");
-  $("name").required = mode === "register";
-  $("password").autocomplete = mode === "register" ? "new-password" : "current-password";
-  $("switchMode").textContent = mode === "register"
-    ? "Zaten hesabın var mı? Giriş yap" : "Hesabın yok mu? Kayıt ol";
-  showMessage("");
-}
-function errorText(error) {
-  const messages = {
-    "auth/email-already-in-use": "Bu e-posta zaten kayıtlı.",
-    "auth/invalid-email": "E-posta adresini kontrol et.",
-    "auth/weak-password": "Daha güçlü bir şifre seç.",
-    "auth/invalid-credential": "E-posta veya şifre hatalı.",
-    "auth/popup-closed-by-user": "Google giriş penceresi kapatıldı.",
-    "auth/popup-blocked": "Açılır pencere engellendi. İzin verip tekrar dene.",
-    "auth/unauthorized-domain": "Bu site Firebase yetkili alan adlarında değil.",
-    "auth/operation-not-allowed": "Firebase konsolunda bu giriş yöntemini etkinleştir.",
-    "auth/network-request-failed": "İnternet bağlantını kontrol et."
-  };
-  return messages[error.code] || "İşlem yapılamadı: " + error.message;
-}
-async function run(action) {
-  if (busy) return;
-  busy = true;
-  showMessage("İşlem yapılıyor...");
-  try { await action(); }
-  catch (error) { showMessage(errorText(error)); }
-  finally { busy = false; }
-}
-
-$("openAuth").addEventListener("click", () => { setMode("login"); openModal(); });
-$("closeAuth").addEventListener("click", closeModal);
-$("authModal").addEventListener("click", e => {
-  if (e.target === $("authModal")) closeModal();
-});
-$("switchMode").addEventListener("click", () => {
-  setMode(mode === "login" ? "register" : "login");
+$("guestLogin").addEventListener("click", () => {
+  loginScreen.classList.add("hidden");
 });
 
-$("authForm").addEventListener("submit", async e => {
-  e.preventDefault();
-  const email = $("email").value.trim();
-  const password = $("password").value;
-  await run(async () => {
-    if (mode === "register") {
-      const credential = await createUserWithEmailAndPassword(auth, email, password);
-      await sendEmailVerification(credential.user);
-      await signOut(auth);
-      showMessage("Kayıt başarılı! E-postana doğrulama bağlantısı gönderdik. Gelen kutunu ve spam klasörünü kontrol et, sonra giriş yap.");
-    } else {
-      const credential = await signInWithEmailAndPassword(auth, email, password);
-      if (!credential.user.emailVerified) {
-        await sendEmailVerification(credential.user);
-        await signOut(auth);
-        showMessage("E-posta adresin henüz doğrulanmadı. Yeni doğrulama bağlantısı gönderdik; e-postanı kontrol et.");
-      } else {
-        closeModal();
-      }
-    }
-  });
-});
-
-$("googleBtn").addEventListener("click", () => run(async () => {
-  const result = await signInWithPopup(auth, provider);
-  // Google ile giriş yapan hesaplarda e-posta doğrulaması sağlayıcı tarafından yapılır.
-  if (!result.user.emailVerified) {
-    await signOut(auth);
-    showMessage("Google hesabının e-posta adresi doğrulanmış olmalı.");
-    return;
+$("googleLogin").addEventListener("click", async () => {
+  $("loginMessage").textContent = "Google giriş ekranı açılıyor...";
+  try {
+    await signInWithPopup(auth, provider);
+    loginScreen.classList.add("hidden");
+    $("loginMessage").textContent = "";
+  } catch (error) {
+    const errors = {
+      "auth/popup-closed-by-user": "Giriş penceresi kapatıldı.",
+      "auth/popup-blocked": "Tarayıcı açılır pencereyi engelledi.",
+      "auth/unauthorized-domain": "Bu alan adını Firebase yetkili alanlarına ekle.",
+      "auth/operation-not-allowed": "Firebase'de Google girişini etkinleştir."
+    };
+    $("loginMessage").textContent =
+      errors[error.code] || "Giriş başarısız: " + error.message;
   }
-  closeModal();
-}));
-
-$("resetBtn").addEventListener("click", () => run(async () => {
-  const email = $("email").value.trim();
-  if (!email) {
-    showMessage("Önce e-posta adresini yaz.");
-    return;
-  }
-  await sendPasswordResetEmail(auth, email);
-  showMessage("Şifre sıfırlama bağlantısı gönderildi. E-postanı kontrol et.");
-}));
-
-$("logoutBtn").addEventListener("click", () => run(async () => {
-  await signOut(auth);
-  showMessage("Çıkış yapıldı.");
-}));
+});
 
 onAuthStateChanged(auth, user => {
-  if (user && user.emailVerified) {
-    $("userInfo").textContent = user.displayName || user.email;
-    $("openAuth").classList.add("hidden");
+  if (user) {
+    loginScreen.classList.add("hidden");
     $("logoutBtn").classList.remove("hidden");
   } else {
-    $("userInfo").textContent = "Hesabınla giriş yap";
-    $("openAuth").classList.remove("hidden");
     $("logoutBtn").classList.add("hidden");
+  }
+});
+
+$("logoutBtn").addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+    loginScreen.classList.remove("hidden");
+  } catch (error) {
+    alert("Çıkış yapılamadı: " + error.message);
   }
 });
 
@@ -256,17 +294,20 @@ document.querySelectorAll("[data-section]").forEach(button => {
     const selected = button.dataset.section;
     $("accounts").classList.toggle("hidden", selected !== "accounts");
     $("cars").classList.toggle("hidden", selected !== "cars");
+    document.querySelectorAll("[data-section]").forEach(tab =>
+      tab.classList.toggle("active", tab === button)
+    );
     window.scrollTo({top: 0, behavior: "smooth"});
   });
 });
 
-if (localStorage.getItem("vartexcpm-theme") === "light") {
+if (localStorage.getItem("vartex-theme") === "light") {
   document.body.classList.add("light");
 }
 $("themeBtn").addEventListener("click", () => {
-  document.body.classList.toggle("light");
-  localStorage.setItem("vartexcpm-theme",
-    document.body.classList.contains("light") ? "light" : "dark");
+  // Basit açık tema geçişi
+  const light = document.body.classList.toggle("light");
+  localStorage.setItem("vartex-theme", light ? "light" : "dark");
 });
 </script>
 </body>
